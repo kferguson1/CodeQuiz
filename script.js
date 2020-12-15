@@ -3,12 +3,16 @@ var resultsEl = document.getElementById("results");
 var CompeleteDiv = document.getElementById("complete");
 var QuizQuestions = document.getElementById("QuizQuestions")
 var submitscore = document.getElementById("SubmitScore")
+var scoreEl = document.getElementById ("Score");
 var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var quiztimer = document.getElementById("timer");
-var startQuizDiv= document.getElementById("startbtn")
+var startQuizDiv= document.getElementById("startpage");
+var startQuiz = document.getElementById("startbtn")
+var HighScoreName = document.getElementById("name");
+var highScoreContainer = document.getElementById("HighScoreContainer");
 var LastQuestionIndex = QuizQuestions.length;
 var CurrentQuestionIndex = 0;
 var timeremaining = 75;
@@ -103,7 +107,25 @@ function displayScore(){
     quiz.style.display = "none"
     CompeleteDiv.style.display = "flex";
     clearInterval(timerinterval);
-    HighScoreName.value = ""
+    HighScoreName.value = "";
+}
 }
 
+function checkAnswer(answer){
+    correct = QuizQuestions[currentQuestionIndex].correctAnswer;
+
+    if (answer === correct && currentQuestionIndex !== LastQuestionIndex){
+        score++;
+        currentQuestionIndex++;
+        generateQuizQuestion();
+
+    }else if (answer !== correct && currentQuestionIndex !== LastQuestionIndex){
+        currentQuestionIndex++;
+        generateQuizQuestion();
+
+    }else{
+        showScore();
+    }
 }
+
+startQuizDiv.addEventListener("click",startQuiz);
