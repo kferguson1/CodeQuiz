@@ -14,6 +14,7 @@ var startQuizDiv= document.getElementById("startpage");
 var startQuizbutton = document.getElementById("startbtn")
 var HighScoreName = document.getElementById("name");
 var highScoreContainer = document.getElementById("HighScoreContainer");
+var highscoreScore = document.getElementById("HighScore")
 var LastQuestionIndex = QuizQuestions.length;
 var CurrentQuestionIndex = 0;
 var timeremaining = 75;
@@ -114,6 +115,21 @@ function displayScore(){
     HighScoreName.value = "";
     scoreEl.innerHTML = "You got " + score + "out of" + QuizQuestions.length + "correct!";
 }
+}
+
+function clearScore(){
+    window.localStorage.clear();
+    highscoreName.textContent = "";
+    highscoreScore.textContent = "";
+}
+// Replay Quiz
+function replayQuiz(){
+    highscoreContainer.style.display = "none";
+    CompleteDiv.style.display = "none";
+    startQuizDiv.style.display = "flex";
+    timeremaining = 75;
+    score = 0;
+    currentQuestionIndex = 0;
 }
 
 // Check Answers
