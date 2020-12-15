@@ -8,6 +8,7 @@ var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var quiztimer = document.getElementById("timer");
+var startQuizDiv= document.getElementById("startbtn")
 var LastQuestionIndex = QuizQuestions.length;
 var CurrentQuestionIndex = 0;
 var timeremaining = 75;
@@ -72,3 +73,7 @@ function generateQuizQuestions(){
     buttonC.innerHTML = CurrentQuestion.answerC;
     buttonD.innerHTML = CurrentQuestion.answerD;
 }
+function startQuiz(){
+    CompeleteDiv.style.display = "none";
+    startQuizDiv.style.display = "none";
+    generateQuizQuestions();
