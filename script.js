@@ -77,3 +77,24 @@ function startQuiz(){
     CompeleteDiv.style.display = "none";
     startQuizDiv.style.display = "none";
     generateQuizQuestions();
+
+// Timer
+(function() {
+    var sec = 75;
+    function startTimer(){
+        console.log('timer suppose to go')
+        var quiztimer = setInterval(function(){
+            sec--;
+            document.getElementById('timerDisplay').innerHTML='00:'+sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
+    }
+    document.getElementById('incorrect').addEventListener('click', function() {
+        sec -= 5;
+        document.getElementById('timerDisplay').innerHTML='00:'+sec;
+    });
+    startTimer();
+})();
