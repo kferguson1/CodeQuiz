@@ -88,7 +88,7 @@ function startQuiz(){
             document.getElementById('timerDisplay').innerHTML='00:'+sec;
             if (sec < 0) {
                 clearInterval(timer);
-                alert("Time is up!")
+                alert("Time's Up!")
             }
         }, 1000);
     }
@@ -98,3 +98,12 @@ function startQuiz(){
     });
     startTimer();
 })();
+
+function displayScore(){
+    quiz.style.display = "none"
+    CompeleteDiv.style.display = "flex";
+    clearInterval(timerinterval);
+    HighScoreName.value = ""
+}
+
+}

@@ -7,4 +7,5 @@ Added Place to add name and submit score button
 Added Variables to corresspond to HTML elements
 Added Quiz questions and answers
 Added More variables
-
+Add function to start quiz and generate questions
+Added timer and timer function that decreases when answer is incorrect
