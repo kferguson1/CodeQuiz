@@ -9,3 +9,5 @@ Added Quiz questions and answers
 Added More variables
 Add function to start quiz and generate questions
 Added timer and timer function that decreases when answer is incorrect
+Added CSS elements
+Added more variables and function to check answers
