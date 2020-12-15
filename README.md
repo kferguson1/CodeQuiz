@@ -30,4 +30,4 @@ Added timer and timer function that decreases when answer is incorrect
 Added CSS elements
 Added more variables and function to check answers
 Fixed Start quiz button 
-
+Added event listener for submit button
