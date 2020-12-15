@@ -8,6 +8,12 @@ var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var quiztimer = document.getElementById("timer");
+var LastQuestionIndex = QuizQuestions.length;
+var CurrentQuestionIndex = 0;
+var timeremaining = 75;
+var timerinterval;
+var score = 0;
+var correct;
 
 // Quiz Questions
 var QuizQuestions = [{
@@ -50,3 +56,19 @@ var QuizQuestions = [{
     answerD: "All of the above",
     correctAnswer: "d"},
     ];
+
+
+// Generating Quiz Questions
+function generateQuizQuestions(){
+    CompeleteDiv.style.display = "none";
+    if (CurrentQuestionIndex === LastQuestionIndex){
+        return displayScore();
+    }
+
+    var CurrentQuestion = QuizQuestions[CurrentQuestionIndex];
+    questionsEL.innerHTML = "<p>" + CurrentQuestion.question + "<p>";
+    buttonA.innerHTML = CurrentQuestion.answerA;
+    buttonB.innerHTML = CurrentQuestion.answerB;
+    buttonC.innerHTML = CurrentQuestion.answerC;
+    buttonD.innerHTML = CurrentQuestion.answerD;
+}
