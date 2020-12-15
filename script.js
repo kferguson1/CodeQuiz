@@ -117,6 +117,28 @@ function displayScore(){
 }
 }
 
+submitScoreBtn.addEventListener("click", function highscore(){
+    
+    
+    if(highscoreName.value === "") {
+        alert("Initials cannot be blank");
+        return false;
+    }else{
+        var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+        var currentUser = highscoreInputName.value.trim();
+        var currentHighscore = {
+            name : currentUser,
+            score : score
+        };
+
+        function showScore(){
+            quizBody.style.display = "none"
+            completeDiv.style.display = "flex";
+            clearInterval(timerInterval);
+            highscoreName.value = "";
+            ScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
+        }
+
 function clearScore(){
     window.localStorage.clear();
     highscoreName.textContent = "";
